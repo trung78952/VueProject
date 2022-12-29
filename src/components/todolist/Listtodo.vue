@@ -3,13 +3,15 @@
     <table style="width: 100%">
       <tr>
         <th>id</th>
-        <th>to do</th>
+        <th>List</th>
+        <th></th>
       </tr>
-      <tr v-for="item in todos" :key="item.id">
-        <td>{{ item.id }}</td>
+      <tr v-for="item,index in todos" :key="item.id">
+        <td>{{ index + 1 }}</td>
         <td>{{ item.todo }}</td>
-        <td class="btn"><b-button variant="outline-secondary" size="sm" @click="handleDeleteclick(item.id)">Delete</b-button>
-          <b-button size="sm" @click="handleEditclick(item.todo)">Edit</b-button>
+        <td class="button">
+          <b-button variant="danger"  @click="handleDeleteclick(item.id)">Delete</b-button>
+          <b-button variant="primary" @click="handleEditclick(item.todo)">Edit</b-button>
         </td>
       </tr>
     </table>
@@ -27,13 +29,13 @@ export default {
     handleEdit: Function,
   },
   methods: {
-    handleDeleteclick(id){
+    handleDeleteclick(id) {
       //console.log('check delete',id)
       this.handleDelete(id)
     },
-    handleEditclick(id){
+    handleEditclick(id) {
       this.handleEdit(id)
-      console.log('check: ',this.$emit)
+      console.log('check: ', this.$emit)
     }
   },
 };
@@ -46,14 +48,18 @@ td {
   border: 1px black solid;
   width: 50%;
 }
+
 .list {
   width: 50%;
   margin: 1rem;
 }
-button{
-  width: 100%;
+
+button {
+  width: 50%;
+  margin: 0 1px;
 }
-.btn{
+
+.button {
   display: flex;
   width: 100%;
 }

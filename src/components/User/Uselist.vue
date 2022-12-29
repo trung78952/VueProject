@@ -32,6 +32,7 @@ li {
 }
 li:hover {
   background-color: aqua;
+  color: black;
   cursor: pointer;
 }
 </style>

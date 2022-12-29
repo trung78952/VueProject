@@ -29,10 +29,11 @@ export default {
 .content{
   display: flex;
   justify-content: center;
+  margin-top:1rem;
   
 }
 *{
   background-color: #2c3e50;
-  color: black;
+  color: white;
 }
 </style>

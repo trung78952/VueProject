@@ -1,7 +1,18 @@
 <template>
   <div class="addform">
-    <input v-model="todo" type="text" />
-    <button @click="handleClickAdd">Add</button>
+    <label for="input-live">To do:</label>
+    <b-form-input 
+    id="input-live" 
+            v-model="todo" 
+            :state="nameState"
+            aria-describedby="input-live-help input-live-feedback" 
+            placeholder="Enter your to do " trim>
+    </b-form-input>
+    <b-form-invalid-feedback id="input-live-feedback">
+      Enter at least 3 letters
+    </b-form-invalid-feedback>
+    <b-form-text id="input-live-help">Your full name.</b-form-text>
+    <b-button variant="success" @click="handleClickAdd">Add</b-button>
   </div>
 </template>
 
@@ -12,6 +23,11 @@ export default {
     return {
       todo: "",
     };
+  },
+  computed: {
+    nameState() {
+      return this.todo.length > 2 ? true : false
+    }
   },
   methods: {
     handleClickAdd() {
@@ -38,10 +54,13 @@ export default {
 </script>
 
 <style>
-.addform{
+.addform {
   margin-top: 2rem;
+  text-align: start;
+  width: 25rem;
 }
-input{
+
+input {
   font-size: 20px;
   margin-bottom: 1rem;
 }
