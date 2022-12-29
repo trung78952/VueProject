@@ -35,4 +35,8 @@ export default {
   justify-content: center;
   
 }
+*{
+  background-color: #2c3e50;
+  color: black;
+}
 </style>

@@ -14,6 +14,7 @@ export default {
     userlist: Array
   },
   methods: {
+    // hàm điều hướng page
     handleUser(id) {
         console.log(id)
         this.$router.push(`/users/${id}`)
@@ -27,6 +28,7 @@ li {
   border-bottom: 1px gray solid;
   margin-bottom: 0.5rem;
   padding: 2px;
+  text-align: left;
 }
 li:hover {
   background-color: aqua;
