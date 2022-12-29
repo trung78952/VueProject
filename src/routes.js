@@ -1,4 +1,4 @@
-import Home from './components/HelloWorld.vue'
+import Home from './components/Home.vue'
 import Todolist from './components/todolist/Todolist.vue'
 import Listuser from './components/User/User.vue'
 import Covid from './components/Covid/Covid.vue'

@@ -8,15 +8,11 @@
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
-import Todolist from "./components/todolist/Todolist.vue";
 import Nav from "./components/Nav.vue";
 export default {
   name: "App",
   components: {
-    HelloWorld,
     Nav,
-    Todolist
   }
 };
 </script>
