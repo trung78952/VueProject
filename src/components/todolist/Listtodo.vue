@@ -8,8 +8,8 @@
       <tr v-for="item in todos" :key="item.id">
         <td>{{ item.id }}</td>
         <td>{{ item.todo }}</td>
-        <td><button @click="handleDeleteclick(item.id)">Delete</button>
-          <button @click="handleEditclick(item.todo)">Edit</button>
+        <td class="btn"><b-button variant="outline-secondary" size="sm" @click="handleDeleteclick(item.id)">Delete</b-button>
+          <b-button size="sm" @click="handleEditclick(item.todo)">Edit</b-button>
         </td>
       </tr>
     </table>
@@ -49,5 +49,12 @@ td {
 .list {
   width: 50%;
   margin: 1rem;
+}
+button{
+  width: 100%;
+}
+.btn{
+  display: flex;
+  width: 100%;
 }
 </style>

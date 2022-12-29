@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="addform">
     <input v-model="todo" type="text" />
     <button @click="handleClickAdd">Add</button>
   </div>
@@ -38,4 +38,11 @@ export default {
 </script>
 
 <style>
+.addform{
+  margin-top: 2rem;
+}
+input{
+  font-size: 20px;
+  margin-bottom: 1rem;
+}
 </style>
