@@ -1,7 +1,8 @@
 <template>
   <div>
     <h1>List user</h1>
-    <Userlist :userlist="userlist" />
+    <span v-if="loading"><b-spinner variant="primary" label="Spinning"></b-spinner></span>
+    <span v-else><Userlist :userlist="userlist" /></span>   
     <UserPage :handlePage="handlePage" />
   </div>
 </template>
@@ -18,6 +19,7 @@ export default {
   data() {
     return {
       userlist: [],
+      loading: true
     };
   },
   created() {
@@ -27,11 +29,12 @@ export default {
         if (data.data.data) {
           this.userlist = data.data.data;
         }
+        this.loading=false
       } catch (err) {
         console.log("check error ", err);
       }
     };
-    getUser();
+    setTimeout(getUser,3000)
   },
   methods: {
     async handlePage(p) {
@@ -53,9 +56,6 @@ export default {
 <style>
 .todo {
   width: 50%;
-}
-button {
-  padding: 0.5rem;
 }
 .active {
   background-color: black;

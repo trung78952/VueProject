@@ -12,6 +12,7 @@
     >
       2
     </button>
+    <!-- <b-pagination-nav :link-gen="linkGen" :number-of-pages="3" use-router></b-pagination-nav> -->
     </div>
 </template>
 <script>
@@ -39,5 +40,6 @@ export default{
 }
 .btnpage button{
     width: 2rem;
+    height: 2rem;
 }
 </style>
