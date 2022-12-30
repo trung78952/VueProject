@@ -1,13 +1,13 @@
 <template>
   <div class="list">
-    <table style="width: 100%">
-      <tr>
-        <th>id</th>
+    <table class="border w-100">
+      <tr class="border border-primary">
+        <th class="border border-primary">id</th>
         <th>List</th>
         <th></th>
       </tr>
-      <tr v-for="item,index in todos" :key="item.id">
-        <td>{{ index + 1 }}</td>
+      <tr v-for="item,index in todos" :key="item.id" class="border border-primary">
+        <td class="border border-primary">{{ index + 1 }}</td>
         <td>{{ item.todo }}</td>
         <td class="button">
           <b-button variant="danger"  @click="handleDeleteclick(item.id)">Delete</b-button>
@@ -42,10 +42,10 @@ export default {
 </script>
 
 <style>
-table,
+
 th,
 td {
-  border: 1px black solid;
+ /* border: 1px black solid; */
   width: 50%;
 }
 

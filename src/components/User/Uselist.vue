@@ -6,7 +6,7 @@
       </li>
     </ul> -->
     <b-list-group v-for="user in userlist" :key="user.id">
-      <b-list-group-item  @click="handleUser(user.id)" variant="dark" class="my-1 text-left py-1 hover-overlay">
+      <b-list-group-item button  @click="handleUser(user.id)" variant="dark" class="my-1 text-left py-1 hover-overlay">
         {{ user.id }} - {{ user.first_name }} {{ user.last_name }}
       </b-list-group-item>
     </b-list-group>
