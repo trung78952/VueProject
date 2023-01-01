@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Nav/>
+    <Nav />
     <div class="content">
       <router-view />
     </div>
@@ -23,17 +23,17 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #c2d1df;
   /* margin-top: 60px; */
 }
-.content{
+
+.content {
   display: flex;
   justify-content: center;
-  margin-top:1rem;
-  
+  height: 100vh;
+  background-color: rgb(71, 77, 77);
+  padding-top: 1rem;
 }
-*{
-  background-color: #2c3e50;
-  color: white;
-}
+
+
 </style>

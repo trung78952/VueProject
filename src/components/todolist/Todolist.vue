@@ -1,11 +1,11 @@
 <template>
   <div class="todo">
     <h1>To do list</h1>
-    <Addtodo :handleAdd="handleAdd" :todoEdit="todo" />
+    <Addtodo :handleAdd="handleAdd" :todoEdit="todo"/>
     <Listtodo
       :todos="todos"
       :handleDelete="handleDelete"
-      :handleEdit="handleEdit"
+      :handleEditsave="handleEditsave"
     />
   </div>
 </template>
@@ -40,13 +40,30 @@ export default {
       console.log(id);
       let newTodo = this.todos.filter((item) => item.id !== id);
       this.todos = newTodo;
+      this.makeToast('danger')
     },
-    handleEdit(id) {
-      //this.todo = this.todos[id]
-
-      this.todo = id;
-      console.log("check edit", this.todo);
-    },
+    makeToast(variant = null) {
+        this.$bvToast.toast('Toast body content', {
+          title: `Variant ${variant || 'default'}`,
+          variant: variant,
+          solid: true
+        })
+      },
+    handleEditsave(id,editTodo){
+      console.log('check id:',id)
+      console.log('check todo:',editTodo)
+      // let change = this.todos.map(item=>{
+      //    if(item.id===id){
+      //     item.todo=editTodo
+      //     console.log('check change:',editTodo)
+      //     return
+      //   }
+      // })
+      let objIndex = this.todos.findIndex((obj => obj.id == id));
+      this.todos[objIndex].todo = editTodo
+      console.log('check change:',this.todos[objIndex])
+      //this.todos=change
+    }
   },
   components: {
     Addtodo,

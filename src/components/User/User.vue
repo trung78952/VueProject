@@ -34,7 +34,7 @@ export default {
         console.log("check error ", err);
       }
     };
-    setTimeout(getUser,3000)
+    getUser()
   },
   methods: {
     async handlePage(p) {

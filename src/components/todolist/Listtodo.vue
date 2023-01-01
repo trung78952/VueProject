@@ -1,17 +1,19 @@
 <template>
   <div class="list">
     <table class="border w-100">
-      <tr class="border border-primary">
-        <th class="border border-primary">id</th>
+      <tr class="border border-danger">
+        <th class="border border-danger">id</th>
         <th>List</th>
         <th></th>
       </tr>
-      <tr v-for="item,index in todos" :key="item.id" class="border border-primary">
-        <td class="border border-primary">{{ index + 1 }}</td>
-        <td>{{ item.todo }}</td>
+      <tr v-for="item,index in todos" :key="item.id" class="border border-danger">
+        <td class="border border-danger">{{ index + 1 }}</td>
+        <td v-if="!isEdit && Edit===item.id"><input type="text" v-model="newEdit"/></td>
+        <td v-else>{{ item.todo }}</td>
         <td class="button">
           <b-button variant="danger"  @click="handleDeleteclick(item.id)">Delete</b-button>
-          <b-button variant="primary" @click="handleEditclick(item.todo)">Edit</b-button>
+          <b-button v-if="!isEdit && Edit===item.id" variant="primary" @click="handleSave">Save</b-button>
+          <b-button v-else variant="primary" @click="handleEditclick(item.id,item.todo)">Edit</b-button>
         </td>
       </tr>
     </table>
@@ -21,21 +23,35 @@
 export default {
   name: "Listtodo",
   data() {
-    return {};
+    return {
+      isEdit: true,
+      Edit: '',
+      newEdit: '',
+    };
   },
   props: {
     todos: Array,
     handleDelete: Function,
-    handleEdit: Function,
+    handleEditsave: Function,
   },
   methods: {
     handleDeleteclick(id) {
       //console.log('check delete',id)
       this.handleDelete(id)
     },
-    handleEditclick(id) {
-      this.handleEdit(id)
-      console.log('check: ', this.$emit)
+    handleEditclick(id,todo) {
+      this.Edit=id
+      this.newEdit=todo
+      //console.log('check id:',todo)
+      this.isEdit=!this.isEdit
+    },
+    handleSave(){
+      if(this.newEdit){
+      this.handleEditsave(this.Edit,this.newEdit)
+      this.isEdit=!this.isEdit
+      }else{
+        alert('empty todo')
+      }
     }
   },
 };
