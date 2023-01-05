@@ -1,16 +1,11 @@
 <template>
   <div>
-    <body>
       <div class="topnav">
-        
         <router-link active-class="active" to="/" exact>Home</router-link>
         <router-link active-class="active" to="/todolist">To do list</router-link>
         <router-link active-class="active" to="/users">List user</router-link>
         <router-link active-class="active" to="/covid">Covid track</router-link>
       </div>
-      <div style="padding-left: 16px">
-      </div>
-    </body>
   </div>
 </template>
 
@@ -29,6 +24,7 @@ body {
 .topnav {
   overflow: hidden;
   background-color: #333;
+  height: 8vh;
 }
 
 .topnav a {

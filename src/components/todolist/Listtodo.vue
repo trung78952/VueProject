@@ -35,16 +35,17 @@ export default {
     handleEditsave: Function,
   },
   methods: {
+    // gọi lên hàm xóa trên cha
     handleDeleteclick(id) {
-      //console.log('check delete',id)
       this.handleDelete(id)
     },
+    // chuyển trạng thái nút edit
     handleEditclick(id,todo) {
       this.Edit=id
       this.newEdit=todo
-      //console.log('check id:',todo)
       this.isEdit=!this.isEdit
     },
+    // lưu lại gửi data về cha
     handleSave(){
       if(this.newEdit){
       this.handleEditsave(this.Edit,this.newEdit)

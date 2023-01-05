@@ -1,7 +1,7 @@
 <template>
   <div class="todo">
     <h1>To do list</h1>
-    <Addtodo :handleAdd="handleAdd" :todoEdit="todo"/>
+    <Addtodo :handleAdd="handleAdd" :todoEdit="todo" />
     <Listtodo
       :todos="todos"
       :handleDelete="handleDelete"
@@ -21,54 +21,62 @@ export default {
         { id: 2, todo: "eat" },
         { id: 3, todo: "sleep" },
         { id: 4, todo: "code" },
-        { id: 5, todo: "fix" },
+        { id: 5, todo: "fix" }
       ],
-      todo: "",
+      todo: ""
     };
   },
   methods: {
+    //thêm
     handleAdd(item) {
       console.log(item);
       let add = {
         id: Math.floor(Math.random() * 1000),
-        todo: item,
+        todo: item
       };
       this.todos = [...this.todos, add];
       console.log("check todo", this.todos);
     },
+    //xóa
     handleDelete(id) {
       console.log(id);
-      let newTodo = this.todos.filter((item) => item.id !== id);
+      let newTodo = this.todos.filter(item => item.id !== id);
       this.todos = newTodo;
-      this.makeToast('danger')
+      this.makeToast("danger");
     },
+    //thông báo
     makeToast(variant = null) {
-        this.$bvToast.toast('Toast body content', {
-          title: `Variant ${variant || 'default'}`,
-          variant: variant,
-          solid: true
-        })
-      },
-    handleEditsave(id,editTodo){
-      console.log('check id:',id)
-      console.log('check todo:',editTodo)
-      // let change = this.todos.map(item=>{
-      //    if(item.id===id){
-      //     item.todo=editTodo
-      //     console.log('check change:',editTodo)
-      //     return
-      //   }
-      // })
-      let objIndex = this.todos.findIndex((obj => obj.id == id));
-      this.todos[objIndex].todo = editTodo
-      console.log('check change:',this.todos[objIndex])
-      //this.todos=change
+      this.$bvToast.toast("Toast body content", {
+        title: `Variant ${variant || "default"}`,
+        variant: variant,
+        solid: true
+      });
+    },
+    //lưu thay đổi
+    handleEditsave(id, editTodo) {
+      console.log("check id:", id);
+      console.log("check todo:", editTodo);
+      //cách 1 
+      let change = this.todos.map(item => {
+        if (item.id === id) {
+          return {
+            ...item,
+            todo: editTodo
+          };
+        }
+        return item
+      });
+      //cách 2
+      // let objIndex = this.todos.findIndex(obj => obj.id == id);
+      // this.todos[objIndex].todo = editTodo;
+      console.log("check change:", change);
+      this.todos=change
     }
   },
   components: {
     Addtodo,
-    Listtodo,
-  },
+    Listtodo
+  }
 };
 </script>
 
@@ -77,7 +85,7 @@ export default {
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   width: 50%;
 }

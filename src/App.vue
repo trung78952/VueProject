@@ -24,16 +24,17 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #c2d1df;
+  background-color: rgb(71, 77, 77);
   /* margin-top: 60px; */
 }
 
 .content {
   display: flex;
   justify-content: center;
-  height: 100vh;
-  background-color: rgb(71, 77, 77);
+  height: 92vh;
   padding-top: 1rem;
 }
+
 
 
 </style>
